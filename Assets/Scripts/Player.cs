@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject[] Hearts = new GameObject[5];
     [SerializeField] private TMP_Text gameOver;
 
+
+
+
     private int countHearts = 4;
 
     private bool isJump;
@@ -95,10 +98,9 @@ public class Player : MonoBehaviour
             isGround = true;
             animator.SetBool("isGround", isGround);
 
-            isJump = false; 
+            isJump = false;
             animator.SetBool("isJump", isJump);
-            }
-            
+        }
 
     }
 
@@ -108,11 +110,10 @@ public class Player : MonoBehaviour
         {
             isGround = false;
             animator.SetBool("isGround", isGround);
-            
-            isJump = true; 
+
+            isJump = true;
             animator.SetBool("isJump", isJump);
-            }
-                    
+        }
 
     }
 
@@ -125,10 +126,12 @@ public class Player : MonoBehaviour
             gameOver.text = "game over";
         }
     }
-    
+
     public void PlayerDamage()
     {
         Destroy(Hearts[countHearts]);
         countHearts--;
     }
+    
+
 }
