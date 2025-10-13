@@ -13,7 +13,7 @@ public class ToFirstLevelAnimation : MonoBehaviour
 
     public void FirstLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
 
