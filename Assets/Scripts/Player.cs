@@ -6,11 +6,14 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     private Vector2 moveVector;
     private Animator animator;
+    public static bool attack = false;
+    private bool rotationBullet = false;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float leftForce;
     [SerializeField] private GameObject[] Hearts = new GameObject[5];
     [SerializeField] private TMP_Text gameOver;
+    [SerializeField] private GameObject bullets;
 
 
 
@@ -38,9 +41,9 @@ public class Player : MonoBehaviour
         Jump();
         Flip();
         PlayerDeath();
-
-
-
+        AttackHero();
+        RotationBullet();
+        Debug.Log(rotationBullet);
     }
 
 
@@ -132,6 +135,33 @@ public class Player : MonoBehaviour
         Destroy(Hearts[countHearts]);
         countHearts--;
     }
-    
+    private void AttackHero()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !attack)
+        {
+            if (rotationBullet)
+            {
+                Instantiate(bullets, transform.position, Quaternion.Euler(0, 180, 0));
+                attack = true;
+            }
+            else
+            {
+                Instantiate(bullets, transform.position, Quaternion.Euler(0, 0, 0));
+                attack = true;
+            }
+        }
+
+    }
+    private void RotationBullet()
+    {
+        if (moveVector.x >= 0)
+        {
+            rotationBullet = true;
+        }
+        else if (moveVector.x < 0)
+        {
+            rotationBullet = false;
+        }
+    }
 
 }

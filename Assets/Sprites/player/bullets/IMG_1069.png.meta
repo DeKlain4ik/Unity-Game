@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: 64cb47375f45146b39edff6005ceb6a5
+guid: 3294d58b5704a496c8c5a5f56ad60a30
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2906510495124373882
-    second: "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F
-      33_0"
+      213: 920490857375272009
+    second: IMG_1069_0
+  - first:
+      213: -2772411526397108701
+    second: IMG_1069_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,14 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F
-        33_0"
+      name: IMG_1069_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 267
+        x: 98
+        y: 325
+        width: 598
+        height: 199
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68eba22aa100aa7d0800000000000000
-      internalID: -2906510495124373882
+      spriteID: 94c09dcce8d36cc00800000000000000
+      internalID: 920490857375272009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1069_1
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 322
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ed6e5d76a6689d0800000000000000
+      internalID: -2772411526397108701
       vertices: []
       indices: 
       edges: []
@@ -163,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F 33_0": -2906510495124373882
+      IMG_1069_0: 920490857375272009
+      IMG_1069_1: -2772411526397108701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

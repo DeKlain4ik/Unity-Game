@@ -1,11 +1,19 @@
 fileFormatVersion: 2
-guid: 64cb47375f45146b39edff6005ceb6a5
+guid: c6e0b6dfe021341b795176b3a6e44895
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2906510495124373882
-    second: "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F
-      33_0"
+      213: -15475733397873189
+    second: IMG_1068_0
+  - first:
+      213: -1608933786567927536
+    second: IMG_1068_1
+  - first:
+      213: 2192329393287507774
+    second: IMG_1068_2
+  - first:
+      213: -253444237527297301
+    second: IMG_1068_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,14 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F
-        33_0"
+      name: IMG_1068_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 267
+        x: 36
+        y: 432
+        width: 74
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68eba22aa100aa7d0800000000000000
-      internalID: -2906510495124373882
+      spriteID: bdd5e2807e409cff0800000000000000
+      internalID: -15475733397873189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1068_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 325
+        width: 598
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0199e70ee3beba9e0800000000000000
+      internalID: -1608933786567927536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1068_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 363
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3fac8db7f7bc6e10800000000000000
+      internalID: 2192329393287507774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1068_3
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 322
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2d0db0fc59b7cf0800000000000000
+      internalID: -253444237527297301
       vertices: []
       indices: 
       edges: []
@@ -163,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u2568\u0428\u2568\u2557\u2568\u2557\u2564\u041E\u2564\u0411\u2564\u0412\u2564\u0410\u2568\u2591\u2564\u0416\u2568\u2555\u2564\u041F_\u2568\u2592\u2568\u2561\u2568\u2556_\u2568\u255C\u2568\u2591\u2568\u2556\u2568\u2593\u2568\u2591\u2568\u255C\u2568\u2555\u2564\u041F 33_0": -2906510495124373882
+      IMG_1068_0: -15475733397873189
+      IMG_1068_1: -1608933786567927536
+      IMG_1068_2: 2192329393287507774
+      IMG_1068_3: -253444237527297301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
