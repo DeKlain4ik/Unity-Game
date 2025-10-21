@@ -9,23 +9,33 @@ public class Player : MonoBehaviour
     public static bool attack = false;
     private bool rotationBullet = false;
     [SerializeField] private float speed;
+    [SerializeField] private float climbSpeed = 3f;
     [SerializeField] private float jumpForce;
-    [SerializeField] private float leftForce;
     [SerializeField] private GameObject[] Hearts = new GameObject[5];
     [SerializeField] private TMP_Text gameOver;
     [SerializeField] private GameObject bullets;
+    [SerializeField] private GameObject DeathAudio;
 
 
 
+    [SerializeField] private AudioSource walkAudio;
+    [SerializeField] private AudioSource shotAudio;
+    [SerializeField] private AudioSource landingAudio; 
+    [SerializeField] private AudioSource JumpAudio; 
+    [SerializeField] private AudioSource DamageAudio; 
 
     private int countHearts = 4;
 
     private bool isJump;
     private bool isIdle;
     private bool isRunning;
-
+    private bool isClimbing = false;
+    private bool onLadder = false;
     private bool isLeft = false;
     private bool isGround = false;
+
+    private bool walkAudioPlaying = false;
+
     void Start()
     {
         gameOver.text = " ";
@@ -43,18 +53,21 @@ public class Player : MonoBehaviour
         PlayerDeath();
         AttackHero();
         RotationBullet();
-        Debug.Log(rotationBullet);
+        ClimbLadder();
+
     }
-
-
 
     private void Walk()
     {
+        if (isClimbing) return;
+
+
         moveVector.x = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveVector.x * speed, rb.linearVelocity.y);
         animator.SetFloat("moveVector", Mathf.Abs(moveVector.x));
         if (moveVector.x == 0)
         {
+            walkAudio.Stop();
             isRunning = false;
             isIdle = true;
             animator.SetBool("isRunning", isRunning);
@@ -62,6 +75,8 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if(!walkAudio.isPlaying && isGround)
+                walkAudio.Play();
             isRunning = true;
             isIdle = false;
             animator.SetBool("isRunning", isRunning);
@@ -69,12 +84,12 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
+            walkAudio.Stop();
+            JumpAudio.Play();
             isJump = true;
             isRunning = false;
             isIdle = false;
@@ -100,7 +115,7 @@ public class Player : MonoBehaviour
         {
             isGround = true;
             animator.SetBool("isGround", isGround);
-
+            landingAudio.Play();
             isJump = false;
             animator.SetBool("isJump", isJump);
         }
@@ -111,6 +126,8 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("ground"))
         {
+            walkAudio.Stop();
+                        
             isGround = false;
             animator.SetBool("isGround", isGround);
 
@@ -125,13 +142,17 @@ public class Player : MonoBehaviour
     {
         if (countHearts < 0)
         {
+            Instantiate(DeathAudio, transform.position, Quaternion.identity);
             Destroy(gameObject);
             gameOver.text = "game over";
+
         }
     }
+    
 
     public void PlayerDamage()
     {
+        DamageAudio.Play();
         Destroy(Hearts[countHearts]);
         countHearts--;
     }
@@ -139,6 +160,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && !attack)
         {
+            shotAudio.Play();
+
             if (rotationBullet)
             {
                 Instantiate(bullets, transform.position, Quaternion.Euler(0, 180, 0));
@@ -163,5 +186,44 @@ public class Player : MonoBehaviour
             rotationBullet = false;
         }
     }
+
+    private void ClimbLadder()
+    {
+        if (!onLadder) return;
+
+        float vertical = Input.GetAxis("Vertical");
+
+        if (Mathf.Abs(vertical) > 0.1f)
+        {
+            isClimbing = true;
+            rb.gravityScale = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, vertical * climbSpeed);
+        }
+        else if (isClimbing)
+        {
+            isClimbing = false;
+            rb.linearVelocity = Vector2.zero;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ladder"))
+        {
+            onLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ladder"))
+        {
+            onLadder = false;
+            isClimbing = false;
+            rb.gravityScale = 1; 
+        }
+    }
+
 
 }

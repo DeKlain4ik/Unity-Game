@@ -7,6 +7,9 @@ TagManager:
   - ground
   - managerUI
   - House1
+  - ladder
+  - bullet
+  - enemy
   layers:
   - Default
   - TransparentFX

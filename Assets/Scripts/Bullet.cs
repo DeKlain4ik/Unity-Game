@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     {
         float dir = transform.eulerAngles.y;
         Move();
-        
+
     }
     private void Move()
     {
@@ -33,11 +33,9 @@ public class Bullet : MonoBehaviour
         Player.attack = false;
     }
 
+
+
 }
-// right
-// (0.00000, 1.00000, 0.00000, 0.00000)
-// left
-// (0.00000, 0.00000, 0.00000, 1.00000)
 
 
 
