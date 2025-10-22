@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     private Animator animator;
     public static bool attack = false;
     private bool rotationBullet = false;
+
+
+
+
     [SerializeField] private float speed;
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] private float jumpForce;
@@ -22,9 +26,10 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource shotAudio;
     [SerializeField] private AudioSource landingAudio; 
     [SerializeField] private AudioSource JumpAudio; 
-    [SerializeField] private AudioSource DamageAudio; 
+    [SerializeField] private AudioSource DamageAudio;
 
     private int countHearts = 4;
+    private int count_walking = 0;
 
     private bool isJump;
     private bool isIdle;
@@ -33,8 +38,6 @@ public class Player : MonoBehaviour
     private bool onLadder = false;
     private bool isLeft = false;
     private bool isGround = false;
-
-    private bool walkAudioPlaying = false;
 
     void Start()
     {
@@ -88,12 +91,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
+
             walkAudio.Stop();
             JumpAudio.Play();
+
             isJump = true;
             isRunning = false;
             isIdle = false;
+
             rb.AddForce(Vector2.up * jumpForce);
+
+
             animator.SetBool("isJump", isJump);
             animator.SetBool("isRunning", isRunning);
             animator.SetBool("isIdle", isIdle);

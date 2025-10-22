@@ -13,7 +13,8 @@ public class ToFirstLevelAnimation : MonoBehaviour
 
     public void FirstLevel()
     {
-        SceneManager.LoadScene(3);
+        // SceneManager.LoadScene(2);
+        House1.isActiveH1 = true;
     }
 
 
