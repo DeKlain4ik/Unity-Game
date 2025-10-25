@@ -42,6 +42,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: moveVector
     m_EventTreshold: 0.1
+  - m_ConditionMode: 2
+    m_ConditionEvent: isIdle
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: isRunning
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -417979379795468529}
   m_Solo: 0
@@ -228,6 +234,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: moveVector
     m_EventTreshold: 0.1
+  - m_ConditionMode: 1
+    m_ConditionEvent: isIdle
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isRunning
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -525377400954158747}
   m_Solo: 0
