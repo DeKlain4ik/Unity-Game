@@ -12,6 +12,9 @@ TagManager:
   - enemy
   - key
   - chest
+  - firstTask
+  - secondTask
+  - thirdTask
   layers:
   - Default
   - TransparentFX

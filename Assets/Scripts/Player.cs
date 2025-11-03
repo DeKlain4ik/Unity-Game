@@ -20,13 +20,18 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject bullets;
     [SerializeField] private GameObject DeathAudio;
 
+
+    [SerializeField] private Animator chestPanelAnimator; // firstTask
+    [SerializeField] private Animator secondTaskAnimator; 
+    [SerializeField] private Animator thirdTaskAnimator; 
     
 
 
-    [SerializeField] private Animator chestPanelAnimator;
     [SerializeField] private Animator buff;
     private bool makingTasks = false;
     private float fuel;
+
+    public TMP_Text countKeys;
 
 
     [SerializeField] private AudioSource walkAudio;
@@ -37,12 +42,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private AudioSource MishaAudio;
     [SerializeField] private AudioSource V1tecAudio;
-    [SerializeField] private AudioSource DiscordAudio;
 
 
     private int countHearts = 4;
 
-    private int coun_key = 0;
+    private int count_key = 0;
 
     private bool isJump;
     private bool isIdle;
@@ -53,12 +57,20 @@ public class Player : MonoBehaviour
     private bool isGround = false;
     private bool isJetpack = false;
 
+
+    private bool firstTask = false;
+    private bool secondTask = false;
+    private bool thirdTask = false;
+
+
     void Start()
     {
         gameOver.text = " ";
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         fuel = maxFuel;
+
+        UpdateCountKeysText();
     }
 
 
@@ -85,6 +97,8 @@ public class Player : MonoBehaviour
         RotationBullet();
         ClimbLadder();
         Jetpack();
+
+        UpdateCountKeysText();
 
     }
 
@@ -253,16 +267,28 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("key"))
         {
-            coun_key++;
+            count_key++;
             Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("chest"))
+        else if (collision.CompareTag("firstTask") && !firstTask && count_key > 0)
         {
             makingTasks = true;
             chestPanelAnimator.SetTrigger("Open");
-            DiscordAudio.Play();
-
+            count_key--;
         }
+        else if (collision.CompareTag("secondTask") && !secondTask && count_key > 0)
+        {
+            makingTasks = true;
+            secondTaskAnimator.SetTrigger("Open");
+            count_key--;
+        }
+        else if (collision.CompareTag("thirdTask") && !thirdTask && count_key > 0)
+        {
+            makingTasks = true;
+            thirdTaskAnimator.SetTrigger("Open");
+            count_key--;
+        }
+
         else if (collision.CompareTag("Finish"))
         {
             MishaAudio.Play();
@@ -297,14 +323,46 @@ public class Player : MonoBehaviour
         }
 
     }
-    
 
-    public void CloseChestPanel()
+
+    public void firstTaskFalse()
     {
         makingTasks = false;
         chestPanelAnimator.SetTrigger("Close");
-        DiscordAudio.Stop();
     }
+    
+    public void firstTaskTrue()
+    {
+        firstTask = true;
+        makingTasks = false;
+        chestPanelAnimator.SetTrigger("Close");
+    }
+
+    public void secondTaskFalse()
+    {
+        makingTasks = false;
+        secondTaskAnimator.SetTrigger("Close");
+    }
+
+    public void secondTaskTrue()
+    {
+        secondTask = true;
+        makingTasks = false;
+        secondTaskAnimator.SetTrigger("Close");
+    }
+    public void thirdTaskFalse()
+    {
+        makingTasks = false;
+        thirdTaskAnimator.SetTrigger("Close");
+    }
+
+    public void thirdTaskTrue()
+    {
+        thirdTask = true;
+        makingTasks = false;
+        thirdTaskAnimator.SetTrigger("Close");
+    }
+
 
     private void Jetpack()
     {
@@ -322,5 +380,11 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    
+    void UpdateCountKeysText()
+    {
+        countKeys.text = count_key.ToString();
+    }
 
 }
