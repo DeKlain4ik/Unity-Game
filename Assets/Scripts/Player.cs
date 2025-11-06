@@ -58,9 +58,9 @@ public class Player : MonoBehaviour
     private bool isJetpack = false;
 
 
-    private bool firstTask = false;
-    private bool secondTask = false;
-    private bool thirdTask = false;
+    [SerializeField]public bool firstTask = false;
+    [SerializeField]public bool secondTask = false;
+    [SerializeField]public bool thirdTask = false;
 
 
     void Start()

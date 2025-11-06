@@ -15,6 +15,7 @@ TagManager:
   - firstTask
   - secondTask
   - thirdTask
+  - finish_lvl
   layers:
   - Default
   - TransparentFX
