@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HideImage : MonoBehaviour
 {
-    public Image introImage;
+    public Image introImage; 
     public float displayTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,10 +15,13 @@ public class HideImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // player.GetComponent<Player>().AllTasksComplete();
     }
     void Hide()
     {
-        introImage.gameObject.SetActive(false);
+        // introImage.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
+
+

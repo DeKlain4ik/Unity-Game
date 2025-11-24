@@ -106,8 +106,6 @@ public class Player : MonoBehaviour
     {
         if (isClimbing || makingTasks) return;
 
-
-
         moveVector.x = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveVector.x * speed, rb.linearVelocity.y);
         animator.SetFloat("moveVector", Mathf.Abs(moveVector.x));
@@ -256,6 +254,16 @@ public class Player : MonoBehaviour
             isClimbing = false;
             rb.linearVelocity = Vector2.zero;
         }
+    }
+
+
+    public void AllTasksComplete()
+    {
+        if(firstTask && secondTask && thirdTask)
+        {
+           Debug.Log("all taks completed!!");
+        }
+
     }
 
 
